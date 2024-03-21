@@ -37,7 +37,6 @@ void triger_task() {
 }
 
 void echo_callback(uint gpio, uint32_t events){
-    printf("echo_callback\n");
     if (events == 0x4) { // fall edge
         int time_end = to_us_since_boot(get_absolute_time());
         xQueueSendFromISR(xQueueTime, &time_end, 0);
