@@ -13,7 +13,6 @@
 #include <stdio.h>
 
 
-
 const int TRIGER = 4;
 const int ECHO = 5;
 
@@ -93,10 +92,12 @@ void oled_task() {
                 gfx_draw_line(&disp, 15, 27, size_bar, 27);
                 
                 gfx_show(&disp);
+                vTaskDelay(pdMS_TO_TICKS(150));
             } else {
                 gfx_clear_buffer(&disp);
                 gfx_draw_string(&disp, 0, 0, 2, "falha");
                 gfx_show(&disp);
+                vTaskDelay(pdMS_TO_TICKS(150));
             }
         }
     }
